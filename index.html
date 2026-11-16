@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infernaris ❤️ My Cutie</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: white;
+    background:
+      radial-gradient(circle at top, #61234f, transparent 55%),
+      linear-gradient(145deg, #090918, #21112f, #401b48);
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.hidden { display: none !important; }
+
+/* Stars */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    color: white;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.3); }
+}
+
+/* Floating hearts */
+
+.particle {
+    position: fixed;
+    bottom: -30px;
+    z-index: 1;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Header */
+
+header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+}
+
+.logo {
+    color: #ffb6dc;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.music-btn {
+    padding: 10px 15px;
+    color: white;
+    border: 1px solid #ffffff40;
+    background: #ffffff15;
+    border-radius: 30px;
+}
+
+/* Main card */
+
+main {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 440px;
+    margin: 55px auto;
+}
+
+.card {
+    padding: 30px 22px;
+    text-align: center;
+    border: 1px solid #ffffff35;
+    border-radius: 25px;
+    background: linear-gradient(145deg,#ffffff19,#ffffff08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 35px #d94dbb25;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.tag {
+    display: inline-block;
+    padding: 7px 15px;
+    border: 1px solid #ff9bd855;
+    border-radius: 30px;
+    background: #ff70bd22;
+    color: #ffb6dc;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg,#ff8fcb,#c7a6ff,#fff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: #e5d6f5;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.names {
+    color: #ffb6dc;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 22px 0;
+}
+
+.names span { color: #c8a4ff; }
+
+.line {
+    height: 1px;
+    margin: 22px 0;
+    background: linear-gradient(90deg,transparent,#ff9bd8,transparent);
+}
+
+.message {
+    color: #eadcf8;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+/* Buttons */
+
+.primary-btn {
+    padding: 14px 27px;
+    color: white;
+    border-radius: 30px;
+    background: linear-gradient(100deg,#e64caa,#8053e8);
+    box-shadow: 0 0 20px #d94dbb55;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px;
+    transition: .3s;
+}
+
+.primary-btn:active {
+    transform: scale(.92);
+}
+
+.secondary-btn {
+    padding: 13px 23px;
+    color: #f4d8ff;
+    background: #ffffff13;
+    border: 1px solid #ffffff40;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+/* Intro */
+
+#welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #0a0818;
+    transition: opacity .8s, visibility .8s;
+}
+
+#welcome.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-box {
+    text-align: center;
+    animation: welcomeFloat 3s infinite ease-in-out;
+}
+
+@keyframes welcomeFloat {
+    50% { transform: translateY(-12px); }
+}
+
+.welcome-box h1 { font-size: 38px; }
+
+.welcome-box p {
+    color: #d8c3ed;
+    margin: 18px 0;
+}
+
+/* Balloon */
+
+#balloonArea { margin-top: 25px; }
+
+#balloon {
+    display: inline-block;
+    font-size: 90px;
+    cursor: pointer;
+    animation: balloonFloat 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 18px #ff75c8);
+}
+
+@keyframes balloonFloat {
+    50% { transform: translateY(-18px) rotate(5deg); }
+}
+
+.small-text {
+    color: #e8dafa;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* Popup */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: #05030ddd;
+    backdrop-filter: blur(9px);
+}
+
+.popup-box {
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 22px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #ff9bd866;
+    background: linear-gradient(145deg,#251535,#120d24);
+    box-shadow: 0 0 40px #d34bba55;
+    animation: popupIn .55s cubic-bezier(.2,1.4,.5,1);
+}
+
+@keyframes popupIn {
+    from {
+        transform: scale(.5) rotate(-5deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.popup-box h2 {
+    color: #ffabd8;
+    margin-bottom: 15px;
+}
+
+.anime-gif {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 2px solid #ffffff55;
+    box-shadow: 0 0 25px #d94dbb66;
+    animation: gifGlow 3s infinite alternate;
+}
+
+@keyframes gifGlow {
+    to { box-shadow: 0 0 35px #a66bff; }
+}
+
+.popup-message {
+    color: #eadcf8;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 18px 0;
+}
+
+.popup-message strong { color: #ffacd9; }
+
+#gifFallback {
+    display: none;
+    padding: 30px;
+    font-size: 50px;
+}
+
+/* Footer */
+
+footer {
+    position: relative;
+    z-index: 2;
+    padding: 25px 10px;
+    text-align: center;
+    color: #bca9d2;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<!-- INTRO -->
+
+<div id="welcome">
+    <div class="welcome-box">
+        <div style="font-size:65px">🌸💗✨</div>
+        <h1>A Little Surprise</h1>
+        <p>Especially made for My Cutie...</p>
+
+        <button class="primary-btn" onclick="enterSite()">
+            Open Your Surprise 💖
+        </button>
+    </div>
+</div>
+
+<header>
+    <div class="logo">INFERNARIS</div>
+
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        ♫ Music: OFF
+    </button>
+</header>
+
+<main>
+<section class="card">
+
+    <div class="tag">MY FAVOURITE PERSON ✦</div>
+
+    <h1>Hey, My Cutie! ❤️</h1>
+
+    <p class="subtitle">
+        In a world full of stars, you are one of
+        the brightest little lights in my sky.
+    </p>
+
+    <div class="names">
+        Infernaris <span>×</span> My Cutie
+    </div>
+
+    <div class="line"></div>
+
+    <h2 style="color:#ffabd8">
+        Will you be mine? 💗
+    </h2>
+
+    <p class="message">
+        I made this tiny world just for you.
+        Every little detail has a bit of affection
+        and a lot of effort behind it. 🌸
+    </p>
+
+    <div id="buttons">
+        <button class="primary-btn" id="yesBtn">
+            YES ❤️
+        </button>
+
+        <button class="secondary-btn" id="noBtn">
+            NO 🙈
+        </button>
+    </div>
+
+    <div id="balloonArea" class="hidden">
+        <div id="balloon">🎈</div>
+        <p class="small-text">
+            Tap the balloon to unlock your surprise!
+        </p>
+    </div>
+
+    <div class="line"></div>
+
+    <p class="message">
+        A little website, a little magic,
+        and one very special person. 💗
+    </p>
+
+</section>
+</main>
+
+<footer>
+    Made with ❤️ by Infernaris | For My Cutie
+</footer>
+
+<!-- SURPRISE POPUP -->
+
+<div id="popup" class="popup hidden">
+    <div class="popup-box">
+
+        <div style="font-size:35px">🌸✨🌙</div>
+
+        <h2>For My Cutie ❤️</h2>
+
+        <img
+            class="anime-gif"
+            src="https://media.giphy.com/media/L3R5dA76NNtWzemBFF/giphy.gif"
+            alt="Anime cherry blossom animation"
+            onerror="this.style.display='none'; document.getElementById('gifFallback').style.display='block';"
+        >
+
+        <div id="gifFallback">
+            🌸🌙✨
+            <p style="font-size:13px">A little anime magic for you!</p>
+        </div>
+
+        <div class="popup-message">
+            <strong>To my sweetest cutie...</strong>
+            <br><br>
+
+            You make my days brighter in ways
+            that are hard to explain.
+            Your smile, your little moments
+            and the memories we share mean so much.
+            <br><br>
+
+            I hope we keep choosing each other,
+            supporting each other and creating
+            countless beautiful memories.
+            <br><br>
+
+            <strong>Always Be Mine, My Cutie ❤️</strong>
+            <br><br>
+
+            Forever your Infernaris 🔥
+        </div>
+
+        <button class="primary-btn" onclick="closePopup()">
+            Close 💕
+        </button>
+
+    </div>
+</div>
+
+<script>
+
+/* INTRO */
+
+function enterSite() {
+    document.getElementById("welcome").classList.add("hide");
+}
+
+/* STARS */
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 65; i++) {
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.textContent = "✦";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.fontSize = (6 + Math.random() * 12) + "px";
+    star.style.animationDelay = Math.random() * 3 + "s";
+
+    stars.appendChild(star);
+}
+
+/* FLOATING EFFECTS */
+
+const symbols = ["❤️","💕","💗","💖","🌸","✨","♡"];
+
+function createParticle() {
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+    particle.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.fontSize = (14 + Math.random() * 22) + "px";
+    particle.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => particle.remove(), 10000);
+}
+
+setInterval(createParticle, 500);
+
+/* YES BUTTON */
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const balloonArea = document.getElementById("balloonArea");
+const balloon = document.getElementById("balloon");
+const popup = document.getElementById("popup");
+
+yesBtn.addEventListener("click", function() {
+    document.getElementById("buttons").classList.add("hidden");
+    balloonArea.classList.remove("hidden");
+    createBurst();
+});
+
+/* MOVING NO BUTTON */
+
+function moveNo() {
+    const maxX = Math.max(0, window.innerWidth - noBtn.offsetWidth - 15);
+    const maxY = Math.max(0, window.innerHeight - noBtn.offsetHeight - 15);
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+    noBtn.style.zIndex = "10";
+}
+
+noBtn.addEventListener("mouseenter", moveNo);
+
+noBtn.addEventListener("touchstart", function(event) {
+    event.preventDefault();
+    moveNo();
+});
+
+/* BALLOON */
+
+balloon.addEventListener("click", function() {
+    balloon.textContent = "💥";
+
+    setTimeout(() => {
+        popup.classList.remove("hidden");
+        createBurst();
+        balloon.textContent = "🎈";
+    }, 350);
+});
+
+/* POPUP */
+
+function closePopup() {
+    popup.classList.add("hidden");
+}
+
+popup.addEventListener("click", function(event) {
+    if (event.target === popup) {
+        closePopup();
+    }
+});
+
+/* CONFETTI */
+
+function createBurst() {
+    const colors = ["#ff8fcb","#b18aff","#ffffff","#e9a9ff"];
+
+    for (let i = 0; i < 65; i++) {
+        const piece = document.createElement("div");
+
+        piece.style.position = "fixed";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.top = "-20px";
+        piece.style.width = "7px";
+        piece.style.height = "10px";
+        piece.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+        piece.style.zIndex = "50";
+        piece.style.pointerEvents = "none";
+        piece.style.borderRadius = "3px";
+
+        document.body.appendChild(piece);
+
+        const x = (Math.random() - .5) * 250;
+        const y = window.innerHeight + 100;
+
+        piece.animate([
+            { transform: "translate(0,0) rotate(0deg)", opacity: 1 },
+            {
+                transform: `translate(${x}px,${y}px) rotate(720deg)`,
+                opacity: 0
+            }
+        ], {
+            duration: 1800 + Math.random() * 1200,
+            easing: "ease-out"
+        });
+
+        setTimeout(() => piece.remove(), 3200);
+    }
+}
+
+/* ORIGINAL BACKGROUND NOTES */
+
+let audioContext = null;
+let musicTimer = null;
+let musicOn = false;
+let noteIndex = 0;
+
+const notes = [
+    261.63, 329.63, 392.00,
+    329.63, 293.66, 349.23
+];
+
+function playNote() {
+    if (!audioContext || !musicOn) return;
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = "sine";
+    oscillator.frequency.value =
+        notes[noteIndex % notes.length];
+
+    gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(
+        0.035, audioContext.currentTime + 0.08
+    );
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001, audioContext.currentTime + 0.45
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.5);
+
+    noteIndex++;
+}
+
+async function toggleMusic() {
+    const btn = document.getElementById("musicBtn");
+
+    if (!musicOn) {
+        const AudioContextClass =
+            window.AudioContext || window.webkitAudioContext;
+
+        if (!AudioContextClass) {
+            btn.textContent = "Music unavailable";
+            return;
+        }
+
+        if (!audioContext) {
+            audioContext = new AudioContextClass();
+        }
+
+        await audioContext.resume();
+
+        musicOn = true;
+        playNote();
+
+        musicTimer = setInterval(playNote, 550);
+        btn.textContent = "♫ Music: ON";
+
+    } else {
+        musicOn = false;
+        clearInterval(musicTimer);
+        btn.textContent = "♫ Music: OFF";
+    }
+}
+
+</script>
+
+</body>
+</html>
